@@ -1,0 +1,25 @@
+# Python 3.10 or newer.
+# Install with: pip install -r requirements.txt
+# On Colab the first notebook cell installs the three optional packages at the bottom of
+# this file; the rest are preinstalled there.
+#
+# Versions are pinned to the environment that produced the reported full run
+# (run_id m15-full-20260730; the same versions are recorded machine-readably in
+# outputs/metrics/run_summary.json under package_versions). The reported FID values
+# depend on the torchmetrics/torch-fidelity/numpy versions, so reproducing the numbers
+# requires these versions, not merely compatible ones. The torch/torchvision pins refer
+# to the CUDA 12.8 builds (2.11.0+cu128 / 0.26.0+cu128 on Colab); the CPU builds of the
+# same versions run the code but are slow for the two DCGAN stages.
+
+torch==2.11.0
+torchvision==0.26.0        # required by the torch-fidelity Inception backend
+numpy==2.0.2
+pandas==2.2.2
+scipy==1.16.3
+scikit-learn==1.6.1
+matplotlib==3.10.0
+
+# Data access and evaluation
+medmnist==3.0.2            # OCTMNIST download and split handling (needs the root= argument)
+torchmetrics==1.9.0        # FrechetInceptionDistance
+torch-fidelity==0.4.0      # Inception backend used by torchmetrics FID
